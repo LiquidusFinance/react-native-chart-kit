@@ -382,7 +382,7 @@ class LineChart extends AbstractChart<LineChartProps, LineChartState> {
 
       if (index >= data[0].data.length - 1) {
         this.label.current.setNativeProps({
-          text: scrollableInfoTextDecorator(data[0].data[0]),
+          text: scrollableInfoTextDecorator(data[0].data[0])
         });
       } else {
         if (index > lastIndex) {
@@ -392,11 +392,11 @@ class LineChart extends AbstractChart<LineChartProps, LineChartState> {
           const prev = data[0].data[abs - 1];
           if (prev > base) {
             this.label.current.setNativeProps({
-              text: scrollableInfoTextDecorator(base),
+              text: scrollableInfoTextDecorator(base)
             });
           } else {
             this.label.current.setNativeProps({
-              text: scrollableInfoTextDecorator(base),
+              text: scrollableInfoTextDecorator(base)
             });
           }
         } else {
@@ -407,11 +407,11 @@ class LineChart extends AbstractChart<LineChartProps, LineChartState> {
           percent = 1 - percent;
           if (next > base) {
             this.label.current.setNativeProps({
-              text: scrollableInfoTextDecorator(base),
+              text: scrollableInfoTextDecorator(base)
             });
           } else {
             this.label.current.setNativeProps({
-              text: scrollableInfoTextDecorator(base),
+              text: scrollableInfoTextDecorator(base)
             });
           }
         }
@@ -499,7 +499,7 @@ class LineChart extends AbstractChart<LineChartProps, LineChartState> {
               this.label.current.setNativeProps({
                 text: scrollableInfoTextDecorator(
                   data[0].data[data[0].data.length - 1]
-                ),
+                )
               });
             }}
             style={scrollableInfoTextStyle}
