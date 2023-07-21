@@ -391,12 +391,10 @@ class LineChart extends AbstractChart<LineChartProps, LineChartState> {
           const base = data[0].data[abs];
           const prev = data[0].data[abs - 1];
           if (prev > base) {
-            let rest = prev - base;
             this.label.current.setNativeProps({
               text: scrollableInfoTextDecorator(base),
             });
           } else {
-            let rest = base - prev;
             this.label.current.setNativeProps({
               text: scrollableInfoTextDecorator(base),
             });
@@ -408,12 +406,10 @@ class LineChart extends AbstractChart<LineChartProps, LineChartState> {
           const next = data[0].data[abs];
           percent = 1 - percent;
           if (next > base) {
-            let rest = next - base;
             this.label.current.setNativeProps({
               text: scrollableInfoTextDecorator(base),
             });
           } else {
-            let rest = base - next;
             this.label.current.setNativeProps({
               text: scrollableInfoTextDecorator(base),
             });
