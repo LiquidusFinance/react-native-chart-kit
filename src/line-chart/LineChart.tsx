@@ -382,7 +382,7 @@ class LineChart extends AbstractChart<LineChartProps, LineChartState> {
 
       if (index >= data[0].data.length - 1) {
         this.label.current.setNativeProps({
-          text: scrollableInfoTextDecorator(data[0].data[0])
+          text: scrollableInfoTextDecorator(Math.floor(data[0].data[0]))
         });
       } else {
         if (index > lastIndex) {
@@ -391,12 +391,18 @@ class LineChart extends AbstractChart<LineChartProps, LineChartState> {
           const base = data[0].data[abs];
           const prev = data[0].data[abs - 1];
           if (prev > base) {
+            let rest = prev - base;
             this.label.current.setNativeProps({
-              text: scrollableInfoTextDecorator(base)
+              text: scrollableInfoTextDecorator(
+                Math.floor(base + percent * rest)
+              )
             });
           } else {
+            let rest = base - prev;
             this.label.current.setNativeProps({
-              text: scrollableInfoTextDecorator(base)
+              text: scrollableInfoTextDecorator(
+                Math.floor(base - percent * rest)
+              )
             });
           }
         } else {
@@ -406,12 +412,18 @@ class LineChart extends AbstractChart<LineChartProps, LineChartState> {
           const next = data[0].data[abs];
           percent = 1 - percent;
           if (next > base) {
+            let rest = next - base;
             this.label.current.setNativeProps({
-              text: scrollableInfoTextDecorator(base)
+              text: scrollableInfoTextDecorator(
+                Math.floor(base + percent * rest)
+              )
             });
           } else {
+            let rest = base - next;
             this.label.current.setNativeProps({
-              text: scrollableInfoTextDecorator(base)
+              text: scrollableInfoTextDecorator(
+                Math.floor(base - percent * rest)
+              )
             });
           }
         }
@@ -497,7 +509,9 @@ class LineChart extends AbstractChart<LineChartProps, LineChartState> {
           <TextInput
             onLayout={() => {
               this.label.current.setNativeProps({
-                text: scrollableInfoTextDecorator(data[0].data[data[0].data.length - 1])
+                text: scrollableInfoTextDecorator(
+                  Math.floor(data[0].data[data[0].data.length - 1])
+                )
               });
             }}
             style={scrollableInfoTextStyle}
