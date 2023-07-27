@@ -501,7 +501,7 @@ class LineChart extends AbstractChart<LineChartProps, LineChartState> {
           <TextInput
             onLayout={() => {
               this.label.current.setNativeProps({
-                text: data[0].data[data[0].data.length - 1]
+                text: ''
               });
             }}
             style={scrollableInfoTextStyle}
