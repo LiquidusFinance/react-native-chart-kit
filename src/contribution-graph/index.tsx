@@ -19,7 +19,8 @@ export interface ContributionGraphProps extends AbstractChartProps {
   showOutOfRangeDays?: boolean;
   accessor?: string;
   getMonthLabel?: (monthIndex: number) => string;
-  onDayPress?: ({ count, date }) => void;
+  onDayPress?: ({ count, date }:{ count: number;
+    date: string;}) => void;
   classForValue?: (value: string) => string;
   style?: Partial<ViewStyle>;
   titleForValue?: (value: ContributionChartValue) => string;
